@@ -9,29 +9,31 @@ require __DIR__ . '/layout_top.php';
      : 's' ?></p></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>ID ↑</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last sign in</th><th></th></tr></thead><tbody><?php foreach (
     $rows
     as $row
-): ?><tr><td><?= e($row['user_id']) ?></td><td><?= e($row['full_name']) ?></td><td><?= e(
-    $row['email'],
-) ?></td><td><?= e($row['role']) ?></td><td class="<?= $row['is_active']
+):
+    $active = $row['is_active'] === 'true'; ?><tr><td><?= e($row['user_id']) ?></td><td><?= e(
+    $row['full_name'],
+) ?></td><td><?= e($row['email']) ?></td><td><?= e($row['role']) ?></td><td class="<?= $active
     ? 'account-active'
-    : 'account-inactive' ?>"><?= $row['is_active'] ? 'Active' : 'Inactive' ?></td><td><?= $row[
+    : 'account-inactive' ?>"><?= $active ? 'Active' : 'Inactive' ?></td><td><?= $row[
     'last_login_at'
 ]
     ? e(date('M j, Y', strtotime($row['last_login_at'])))
     : 'Never' ?></td><td><?php if (
     (int) $row['user_id'] !== $user['user_id']
-): ?><form method="post" class="inline-form" data-confirm="<?= $row['is_active']
+): ?><form method="post" class="inline-form" data-confirm="<?= $active
     ? 'Disable'
     : 'Enable' ?> this account?"><input type="hidden" name="csrf_token" value="<?= e(
      csrf_token(),
  ) ?>"><input type="hidden" name="form_action" value="toggle"><input type="hidden" name="id" value="<?= e(
     $row['user_id'],
-) ?>"><button class="action-link action-toggle" type="submit"><?= $row['is_active']
+) ?>"><button class="action-link action-toggle" type="submit"><?= $active
     ? 'Disable'
     : 'Enable' ?></button></form><form method="post" class="inline-form" data-confirm="Permanently delete this account? This cannot be undone."><input type="hidden" name="csrf_token" value="<?= e(
     csrf_token(),
 ) ?>"><input type="hidden" name="form_action" value="delete"><input type="hidden" name="id" value="<?= e(
     $row['user_id'],
-) ?>"><button class="action-link action-delete action-danger" type="submit">Delete</button></form><?php else: ?><span class="muted-copy">You</span><?php endif; ?></td></tr><?php endforeach; ?></tbody></table></div></section>
+) ?>"><button class="action-link action-delete action-danger" type="submit">Delete</button></form><?php else: ?><span class="muted-copy">You</span><?php endif; ?></td></tr><?php
+endforeach; ?></tbody></table></div></section>
 <section class="panel"><div class="eyebrow">NEW ACCOUNT</div><h2>Create a user</h2><p class="muted-copy">New users must change the temporary password at their first sign in.</p><?php if (
     !empty($error)
 ): ?><div class="alert alert-error"><?= e(

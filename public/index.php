@@ -126,7 +126,7 @@ try {
                 }
                 // [LEARNING EXPLANATION] The password is checked against its one-way hash. The role comes from the database record, never from a form field.
                 $stmt = db()->prepare(
-                    'SELECT user_id,full_name,email,password_hash,role,is_active,must_change_password,failed_login_count,locked_until FROM public.app_users WHERE lower(email)=:email',
+                    'SELECT user_id,full_name,email,password_hash,role,is_active::text AS is_active,must_change_password,failed_login_count,locked_until FROM public.app_users WHERE lower(email)=:email',
                 );
                 $stmt->execute(['email' => $email]);
                 $account = $stmt->fetch();
@@ -136,11 +136,11 @@ try {
                     strtotime((string) $account['locked_until']) > time();
                 if (
                     !$account ||
-                    !$account['is_active'] ||
+                    $account['is_active'] !== 'true' ||
                     $locked ||
                     !password_verify($password, $account['password_hash'])
                 ) {
-                    if ($account && $account['is_active'] && !$locked) {
+                    if ($account && $account['is_active'] === 'true' && !$locked) {
                         $fail = (int) $account['failed_login_count'] + 1;
                         $until = $fail >= 5 ? date('c', time() + 900) : null;
                         $up = db()->prepare(
@@ -758,14 +758,14 @@ try {
                 }
                 db_transaction(function (PDO $pdo) use ($id): void {
                     $st = $pdo->prepare(
-                        'SELECT role,is_active FROM public.app_users WHERE user_id=:id FOR UPDATE',
+                        'SELECT role,is_active::text AS is_active FROM public.app_users WHERE user_id=:id FOR UPDATE',
                     );
                     $st->execute(['id' => $id]);
                     $old = $st->fetch();
                     if (!$old) {
                         throw new NotFoundException('Account not found.');
                     }
-                    $active = !$old['is_active'];
+                    $active = $old['is_active'] !== 'true';
                     if (!$active && $old['role'] === 'Administrator') {
                         $admins = (int) $pdo
                             ->query(
@@ -779,9 +779,9 @@ try {
                         }
                     }
                     $up = $pdo->prepare(
-                        'UPDATE public.app_users SET is_active=:active WHERE user_id=:id',
+                        'UPDATE public.app_users SET is_active = NOT is_active WHERE user_id=:id',
                     );
-                    $up->execute(['active' => $active, 'id' => $id]);
+                    $up->execute(['id' => $id]);
                     audit('ACCOUNT_CHANGE', 'app_users', (string) $id, null, ['active' => $active]);
                 });
                 flash('success', 'Account status updated.');
@@ -794,14 +794,14 @@ try {
                 }
                 db_transaction(function (PDO $pdo) use ($id): void {
                     $st = $pdo->prepare(
-                        'SELECT role,is_active FROM public.app_users WHERE user_id=:id FOR UPDATE',
+                        'SELECT role,is_active::text AS is_active FROM public.app_users WHERE user_id=:id FOR UPDATE',
                     );
                     $st->execute(['id' => $id]);
                     $old = $st->fetch();
                     if (!$old) {
                         throw new NotFoundException('Account not found.');
                     }
-                    if ($old['role'] === 'Administrator' && $old['is_active']) {
+                    if ($old['role'] === 'Administrator' && $old['is_active'] === 'true') {
                         $admins = (int) $pdo
                             ->query(
                                 "SELECT COUNT(*) FROM public.app_users WHERE role='Administrator' AND is_active",
@@ -823,7 +823,7 @@ try {
         }
         $rows = db()
             ->query(
-                'SELECT user_id,full_name,email,role,is_active,last_login_at,created_at FROM public.app_users ORDER BY user_id ASC',
+                'SELECT user_id,full_name,email,role,is_active::text AS is_active,last_login_at,created_at FROM public.app_users ORDER BY user_id ASC',
             )
             ->fetchAll();
         render('users', common_data() + compact('rows', 'error'));
