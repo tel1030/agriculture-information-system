@@ -45,7 +45,7 @@ require __DIR__ . '/layout_top.php';
             <button class="button button-secondary button-small" type="submit">Apply</button>
         </form>
     </div>
-    <div class="table-scroll"><table class="data-table">
+    <div class="table-scroll"><table class="data-table responsive-list-table">
         <thead><tr><?php foreach ($d['columns'] as $column => $label): ?><th><?=
 e($label) ?><?= $column === $d['key'] ? ' ↑' : ''
 ?></th><?php endforeach; ?><th><span class="sr-only">Actions</span></th></tr></thead>
@@ -55,7 +55,9 @@ e($label) ?><?= $column === $d['key'] ? ' ↑' : ''
                 1 ?>"><div class="empty-state table-empty"><span>⌕</span><strong>No matching records</strong><p>Try a different search or add a new record.</p></div></td></tr>
         <?php else:foreach ($rows as $row): ?>
             <tr>
-                <?php foreach ($d['columns'] as $column => $label): ?><td>
+                <?php foreach ($d['columns'] as $column => $label): ?><td data-label="<?= e(
+    $label,
+) ?>">
                     <?php if ($column === 'status_name'): ?><span class="status-chip"><?= e(
     $row[$column],
 ) ?></span>
@@ -84,7 +86,7 @@ e($label) ?><?= $column === $d['key'] ? ' ↑' : ''
                     <?php
                     else: ?><?= e($row[$column] ?? '—') ?><?php endif; ?>
                 </td><?php endforeach; ?>
-                <td class="row-actions">
+                <td class="row-actions" data-label="Actions">
                     <a class="action-link" href="<?= e($route) ?>?action=view&amp;id=<?= e(
     $row[$d['key']],
 ) ?>">View</a>
