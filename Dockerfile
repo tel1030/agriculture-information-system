@@ -6,6 +6,9 @@ RUN apt-get update \
     && a2enmod headers \
     && rm -rf /var/lib/apt/lists/*
 
+# Render mounts Docker secret files for group 1000; Apache's PHP workers run as www-data.
+RUN usermod -a -G 1000 www-data
+
 RUN sed -ri 's!/var/www/html!/var/www/html/public!g' \
         /etc/apache2/sites-available/000-default.conf \
         /etc/apache2/apache2.conf \

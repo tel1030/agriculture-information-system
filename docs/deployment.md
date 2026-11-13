@@ -12,6 +12,8 @@ only `public/`; application code, SQL files, scripts, and logs are not in the we
 3. After the service is created, set these secret environment variables in Render:
    `APP_URL` (the final `https://...onrender.com` URL), `SUPABASE_DB_HOST`,
    `SUPABASE_DB_USER`, and `SUPABASE_DB_PASSWORD`.
+   In **Environment → Secret Files**, add a file named `prod-ca-2021.crt` using the
+   contents of your trusted Supabase root certificate.
 4. Apply `database/migrations/001_initial_schema.sql` in Supabase before opening the app.
    Use the Supabase pooler host and a restricted database user for the runtime connection.
 5. Deploy and confirm Render's health check reports `/health.php` as healthy.
@@ -19,9 +21,11 @@ only `public/`; application code, SQL files, scripts, and logs are not in the we
    using `AIS_BOOTSTRAP_ADMIN_EMAIL` and `AIS_BOOTSTRAP_ADMIN_PASSWORD`, then remove those
    variables immediately. The setup command is `php scripts/setup-admin.php`.
 
-The Render configuration uses `SUPABASE_DB_SSLMODE=require`, which encrypts the connection
-without requiring a certificate file in the container. Use the Supabase pooler endpoint
-recommended for the selected project and keep the database user least-privileged.
+The Render configuration uses `SUPABASE_DB_SSLMODE=verify-full` and reads the trusted root
+certificate from `/etc/secrets/prod-ca-2021.crt`, where Render mounts secret files at runtime.
+The Windows certificate path in your local `.env` is for local development only; never use
+that path as a Render environment value. Use the Supabase pooler endpoint recommended for the
+selected project and keep the database user least-privileged.
 
 Render's free service can sleep after inactivity and its local filesystem is ephemeral.
 The application therefore writes production errors to stderr for Render logs and stores no

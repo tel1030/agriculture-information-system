@@ -1,31 +1,33 @@
 services:
-  - type: web
-    name: agriculture-information-system
-    runtime: docker
-    plan: free
-    healthCheckPath: /health.php
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_DEBUG
-        value: "false"
-      - key: APP_SESSION_SECURE
-        value: "true"
-      - key: APP_TRUSTED_PROXY
-        value: "true"
-      - key: APP_TIMEZONE
-        value: Asia/Manila
-      - key: APP_URL
-        sync: false
-      - key: SUPABASE_DB_HOST
-        sync: false
-      - key: SUPABASE_DB_PORT
-        value: "5432"
-      - key: SUPABASE_DB_NAME
-        value: postgres
-      - key: SUPABASE_DB_USER
-        sync: false
-      - key: SUPABASE_DB_PASSWORD
-        sync: false
-      - key: SUPABASE_DB_SSLMODE
-        value: require
+    - type: web
+      name: agriculture-information-system
+      runtime: docker
+      plan: free
+      healthCheckPath: /health.php
+      envVars:
+          - key: APP_ENV
+            value: production
+          - key: APP_DEBUG
+            value: 'false'
+          - key: APP_SESSION_SECURE
+            value: 'true'
+          - key: APP_TRUSTED_PROXY
+            value: 'true'
+          - key: APP_TIMEZONE
+            value: Asia/Manila
+          - key: APP_URL
+            sync: false
+          - key: SUPABASE_DB_HOST
+            sync: false
+          - key: SUPABASE_DB_PORT
+            value: '5432'
+          - key: SUPABASE_DB_NAME
+            value: postgres
+          - key: SUPABASE_DB_USER
+            sync: false
+          - key: SUPABASE_DB_PASSWORD
+            sync: false
+          - key: SUPABASE_DB_SSLMODE
+            value: verify-full
+          - key: SUPABASE_DB_SSLROOTCERT
+            value: /etc/secrets/prod-ca-2021.crt

@@ -4,6 +4,7 @@
 .git
 .gitignore
 .vscode
+certs/
 node_modules
 storage/logs/*
 !storage/logs/.gitkeep
