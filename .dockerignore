@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.git
+.gitignore
+.vscode
+node_modules
+storage/logs/*
+!storage/logs/.gitkeep
+tmp
+vendor
+*.log
+README.md
+docs
+database

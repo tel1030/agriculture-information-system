@@ -1,0 +1,11 @@
+{
+    "devDependencies": {
+        "@prettier/plugin-php": "^0.26.0",
+        "prettier": "^3.10.1",
+        "prettier-plugin-sql": "^0.20.0"
+    },
+    "scripts": {
+        "format": "prettier --write \"**/*.{css,html,js,json,md,php,sql,webmanifest}\"",
+        "format:check": "prettier --check \"**/*.{css,html,js,json,md,php,sql,webmanifest}\""
+    }
+}

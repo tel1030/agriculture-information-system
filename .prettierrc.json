@@ -1,0 +1,10 @@
+{
+    "printWidth": 100,
+    "tabWidth": 4,
+    "useTabs": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "language": "postgresql",
+    "plugins": ["@prettier/plugin-php", "prettier-plugin-sql"]
+}

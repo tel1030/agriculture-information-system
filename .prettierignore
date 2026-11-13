@@ -1,0 +1,12 @@
+node_modules/
+vendor/
+storage/logs/
+tmp/
+.env
+.env.*
+!.env.example
+public/assets/icons/
+# The PHP plugin cannot safely rewrite these mixed-template alternative-syntax views.
+app/views/dashboard.php
+app/views/module_form.php
+app/views/module_list.php
