@@ -24,7 +24,7 @@ try {
 <div class="app-shell" id="app-shell">
 <aside class="sidebar" id="sidebar" aria-label="Main navigation">
     <a class="brand" href="index.php"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>Agri<span>Culture</span></strong><small>Information System</small></span></a>
-    <button class="sidebar-collapse" type="button" id="sidebar-toggle" aria-label="Collapse navigation" aria-expanded="true"><span aria-hidden="true">‹</span></button>
+    <button class="sidebar-collapse" type="button" id="sidebar-toggle" aria-label="Collapse navigation" aria-expanded="true"><span class="sidebar-toggle-arrow" aria-hidden="true">‹</span><span class="sidebar-toggle-leaf" aria-hidden="true">❧</span></button>
     <nav class="nav-list">
         <a class="nav-link <?= $navPage === 'dashboard'
             ? 'active'

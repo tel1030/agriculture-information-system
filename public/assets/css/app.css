@@ -132,9 +132,28 @@ select:focus-visible {
     font-size: 18px;
     cursor: pointer;
 }
+.sidebar-toggle-leaf {
+    display: none;
+}
 .nav-list {
     overflow-y: auto;
     flex: 1;
+    scrollbar-color: rgba(183, 215, 190, 0.55) transparent;
+    scrollbar-width: thin;
+}
+.nav-list::-webkit-scrollbar {
+    width: 8px;
+}
+.nav-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.nav-list::-webkit-scrollbar-thumb {
+    background: rgba(183, 215, 190, 0.42);
+    border: 2px solid #143d2a;
+    border-radius: 999px;
+}
+.nav-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(183, 215, 190, 0.68);
 }
 .nav-caption {
     font-size: 9px;
@@ -1269,6 +1288,7 @@ select:focus-visible {
     margin-left: 76px;
 }
 .collapsed .brand-copy,
+.collapsed .brand-mark,
 .collapsed .nav-link > span:not(.nav-icon),
 .collapsed .nav-caption,
 .collapsed .account-name,
@@ -1276,10 +1296,21 @@ select:focus-visible {
     display: none;
 }
 .collapsed .brand {
-    padding-left: 6px;
+    min-height: 36px;
+    height: 36px;
+    margin-bottom: 25px;
+    padding: 0;
 }
 .collapsed .sidebar-collapse {
-    transform: rotate(180deg);
+    right: auto;
+    left: 25px;
+}
+.collapsed .sidebar-toggle-arrow {
+    display: none;
+}
+.collapsed .sidebar-toggle-leaf {
+    display: inline;
+    font-size: 16px;
 }
 .collapsed .nav-link {
     justify-content: center;
@@ -1368,6 +1399,9 @@ select:focus-visible {
     .collapsed .sidebar .account-name,
     .collapsed .sidebar .logout-button {
         display: initial;
+    }
+    .collapsed .sidebar .brand-mark {
+        display: grid;
     }
     .collapsed .sidebar .nav-link {
         justify-content: flex-start;
