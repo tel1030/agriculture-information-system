@@ -3,21 +3,42 @@
     const shell = document.getElementById('app-shell');
     const sidebar = document.getElementById('sidebar');
     const toggle = document.getElementById('sidebar-toggle');
+    const brand = sidebar?.querySelector('.brand');
     const mobileMenu = document.getElementById('mobile-menu');
     const backdrop = document.getElementById('sidebar-backdrop');
 
     if (shell && toggle) {
-        if (localStorage.getItem('ais-sidebar-collapsed') === 'true')
+        const initiallyCollapsed = localStorage.getItem('ais-sidebar-collapsed') === 'true';
+        if (initiallyCollapsed)
             shell.classList.add('collapsed');
-        toggle.addEventListener('click', () => {
-            shell.classList.toggle('collapsed');
+        const syncSidebarControls = () => {
             const expanded = !shell.classList.contains('collapsed');
             toggle.setAttribute('aria-expanded', String(expanded));
             toggle.setAttribute(
                 'aria-label',
                 expanded ? 'Collapse navigation' : 'Expand navigation',
             );
+            brand?.setAttribute(
+                'aria-label',
+                expanded ? 'AgreeCulture home' : 'Expand sidebar with AgreeCulture logo',
+            );
+        };
+        syncSidebarControls();
+        toggle.addEventListener('click', () => {
+            shell.classList.toggle('collapsed');
+            const expanded = !shell.classList.contains('collapsed');
             localStorage.setItem('ais-sidebar-collapsed', String(!expanded));
+            syncSidebarControls();
+        });
+        brand?.addEventListener('click', (event) => {
+            if (
+                !shell.classList.contains('collapsed') ||
+                !window.matchMedia('(min-width: 1151px)').matches
+            ) return;
+            event.preventDefault();
+            shell.classList.remove('collapsed');
+            localStorage.setItem('ais-sidebar-collapsed', 'false');
+            syncSidebarControls();
         });
     }
 

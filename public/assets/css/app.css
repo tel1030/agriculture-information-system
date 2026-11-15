@@ -1416,20 +1416,11 @@ select:focus-visible {
 .collapsed .brand {
     min-height: 36px;
     height: 36px;
-    margin-bottom: 42px;
+    margin-bottom: 25px;
     padding: 0;
 }
 .collapsed .sidebar-collapse {
-    right: auto;
-    left: 25px;
-    top: 68px;
-}
-.collapsed .sidebar-toggle-arrow {
     display: none;
-}
-.collapsed .sidebar-toggle-leaf {
-    display: inline;
-    font-size: 16px;
 }
 .collapsed .nav-link {
     justify-content: center;
