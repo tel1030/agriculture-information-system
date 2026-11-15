@@ -1001,20 +1001,22 @@ select:focus-visible {
 }
 .auth-body {
     min-height: 100vh;
+    min-height: 100svh;
     display: grid;
     place-items: center;
-    padding: 24px;
+    padding: 24px 16px;
     background: var(--bg);
 }
 .auth-wrap {
-    width: min(460px, 100%);
+    width: min(440px, 100%);
+    margin: auto;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(34, 58, 40, 0.1);
 }
 .auth-card {
-    padding: 38px 40px;
+    padding: 36px 38px;
 }
 .auth-brand {
     padding: 0;
