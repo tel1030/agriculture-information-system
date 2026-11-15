@@ -135,6 +135,20 @@ select:focus-visible {
 .sidebar-toggle-leaf {
     display: none;
 }
+.sidebar-collapse svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: middle;
+}
+.sidebar-toggle-leaf {
+    width: 17px !important;
+    height: 17px !important;
+}
 .nav-list {
     overflow-y: auto;
     flex: 1;
@@ -191,6 +205,19 @@ select:focus-visible {
     text-align: center;
     font-size: 16px;
     flex: 0 0 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-icon svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 .sidebar-bottom {
     padding-top: 10px;
