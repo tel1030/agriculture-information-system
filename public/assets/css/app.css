@@ -1048,9 +1048,6 @@ select:focus-visible {
 .auth-brand .brand-copy strong {
     color: #1c5035;
 }
-.auth-intro .eyebrow {
-    color: var(--green);
-}
 .auth-intro h1 {
     font:
         700 28px Manrope,
