@@ -248,9 +248,6 @@ select:focus-visible {
     color: var(--text);
     font-weight: 600;
 }
-.crumb-divider {
-    color: #c3ccc5;
-}
 .topbar-right {
     display: flex;
     align-items: center;
@@ -1390,10 +1387,6 @@ select:focus-visible {
     }
     .breadcrumbs {
         font-size: 10px;
-    }
-    .breadcrumbs > span:first-child,
-    .crumb-divider {
-        display: none;
     }
     .topbar-right {
         gap: 9px;

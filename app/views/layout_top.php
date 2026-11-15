@@ -86,7 +86,7 @@ try {
 </aside>
 <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Close navigation"></button>
 <main class="main-area">
-    <header class="topbar"><button class="mobile-menu" type="button" id="mobile-menu" aria-label="Open navigation" aria-expanded="false">☰</button><div class="breadcrumbs"><span>Workspace</span><span class="crumb-divider">/</span><strong><?= e(
+    <header class="topbar"><button class="mobile-menu" type="button" id="mobile-menu" aria-label="Open navigation" aria-expanded="false">☰</button><div class="breadcrumbs"><strong><?= e(
         $pageTitle,
     ) ?></strong></div><div class="topbar-right"><span class="live-pill"><i></i> Secure workspace</span><span class="top-avatar"><?= e(
     mb_strtoupper(mb_substr($user['name'] ?? 'A', 0, 1)),
