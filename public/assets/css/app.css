@@ -1014,7 +1014,7 @@ select:focus-visible {
     background-attachment: fixed;
 }
 .auth-wrap {
-    width: min(560px, 100%);
+    width: min(480px, 100%);
     margin: auto;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -1482,7 +1482,7 @@ select:focus-visible {
         padding: 15px;
     }
     .auth-wrap {
-        width: min(560px, 100%);
+        width: min(480px, 100%);
     }
     .auth-card {
         padding: 28px 24px;
