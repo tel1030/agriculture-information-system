@@ -1833,6 +1833,26 @@ select:focus-visible {
     width: max-content;
     min-width: 100%;
 }
+.data-table.audit-table {
+    width: min(100%, 1040px);
+    min-width: 620px;
+    margin-inline: auto;
+    table-layout: fixed;
+    white-space: normal;
+}
+.audit-table th:nth-child(1) {
+    width: 29%;
+}
+.audit-table th:nth-child(2) {
+    width: 34%;
+}
+.audit-table th:nth-child(3) {
+    width: 37%;
+}
+.audit-table td {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
 
 @media (max-width: 850px) {
     .main-area {

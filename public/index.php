@@ -950,7 +950,7 @@ try {
         require_admin();
         $rows = db()
             ->query(
-                'SELECT l.log_id,l.created_at,u.full_name,l.action,l.entity_table,l.record_pk,l.old_values,l.new_values FROM public.audit_logs l LEFT JOIN public.app_users u ON u.user_id=l.actor_user_id ORDER BY l.log_id ASC LIMIT 200',
+                'SELECT l.created_at,u.full_name,l.action FROM public.audit_logs l LEFT JOIN public.app_users u ON u.user_id=l.actor_user_id ORDER BY l.log_id ASC LIMIT 200',
             )
             ->fetchAll();
         render('audit', common_data() + compact('rows'));
