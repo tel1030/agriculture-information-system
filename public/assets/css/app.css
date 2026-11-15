@@ -1005,13 +1005,24 @@ select:focus-visible {
     display: grid;
     place-items: center;
     padding: 24px 16px;
-    background-color: #0c3d2b;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    background: #b7d6a2;
+}
+.auth-body::before {
+    content: "";
+    position: fixed;
+    inset: -20px;
+    z-index: -1;
     background-image:
-        linear-gradient(rgba(8, 55, 37, 0.22), rgba(8, 55, 37, 0.38)),
+        linear-gradient(135deg, rgba(184, 222, 153, 0.52), rgba(10, 78, 51, 0.3)),
         url("../images/login-green-texture.png");
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
+    filter: blur(18px) saturate(0.72);
+    opacity: 0.88;
+    transform: scale(1.03);
 }
 .auth-wrap {
     width: min(480px, 100%);
