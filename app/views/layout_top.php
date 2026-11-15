@@ -11,7 +11,6 @@ $navIcons = [
     'harvests' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16l-2 10H6L4 10Z"/><path d="M3 10c1-3 3-4 5-4 1-3 3-4 5-4s4 1 5 4c2 0 3 1 3 4M8 13v4m4-4v4m4-4v4"/></svg>',
     'reports' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V12m5 8V5m5 15v-9m5 9V3"/></svg>',
     'accounts' => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1m1-14a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5v1"/></svg>',
-    'lookups' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg>',
     'audit' => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
     'profile' => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.2.9-1.2 2.1-1.4-.6a8 8 0 0 1-1.6.9l-.2 1.5h-2.4l-.2-1.5a8 8 0 0 1-1.6-.9l-1.4.6-1.2-2.1 1.2-.9a7 7 0 0 1 0-1.8l-1.2-.9 1.2-2.1 1.4.6a8 8 0 0 1 1.6-.9l.2-1.5h2.4l.2 1.5a8 8 0 0 1 1.6.9l1.4-.6 1.2 2.1-1.2.9a7 7 0 0 1 0 1.8Z"/></svg>',
 ];
@@ -68,9 +67,6 @@ try {
             <a class="nav-link <?= $navPage === 'users'
                 ? 'active'
                 : '' ?>" href="users.php"><span class="nav-icon"><?= $navIcons['accounts'] ?></span><span>Accounts</span></a>
-            <a class="nav-link <?= $navPage === 'lookups'
-                ? 'active'
-                : '' ?>" href="lookups.php"><span class="nav-icon"><?= $navIcons['lookups'] ?></span><span>Lookup values</span></a>
             <a class="nav-link <?= $navPage === 'audit'
                 ? 'active'
                 : '' ?>" href="activity.php"><span class="nav-icon"><?= $navIcons['audit'] ?></span><span>Activity log</span></a>
