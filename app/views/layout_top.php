@@ -30,6 +30,9 @@ try {
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#164b35"><link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png?v=tree-ring-1">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=tree-ring-1">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=tree-ring-1">
     <title><?= e($pageTitle) ?> · AIS</title><link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body data-version="<?= $dataVersion ?>">
