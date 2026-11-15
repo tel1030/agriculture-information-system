@@ -21,7 +21,9 @@ require __DIR__ . '/layout_top.php';
     ) ?>?action=create"><span>＋</span> Add <?= rtrim(strtolower($d['title']), 's') ?></a>
 </section>
 <section class="panel table-panel">
-    <div class="table-toolbar">
+    <div class="table-toolbar<?= $d['title'] === 'Plantings'
+        ? ' plantings-toolbar'
+        : '' ?>">
         <div><h2>All <?= strtolower($d['title']) ?></h2><p><?= number_format(
     $total,
 ) ?> record<?= $total === 1 ? '' : 's' ?> found</p></div>

@@ -765,6 +765,40 @@ select:focus-visible {
     justify-content: space-between;
     gap: 12px;
 }
+.plantings-toolbar {
+    background: #e3eed4;
+    border-bottom: 1px solid #6b9071;
+}
+.plantings-toolbar h2 {
+    color: #0f2a1d;
+}
+.plantings-toolbar p {
+    color: #375534;
+}
+.plantings-toolbar .search-box,
+.plantings-toolbar .filter-bar select {
+    background: #f8faf4;
+    border-color: #aec3b0;
+    color: #0f2a1d;
+}
+.plantings-toolbar .search-box:focus-within,
+.plantings-toolbar .filter-bar select:focus-visible {
+    border-color: #6b9071;
+    outline: 2px solid rgba(107, 144, 113, 0.22);
+    outline-offset: 1px;
+}
+.plantings-toolbar .search-box span {
+    color: #375534;
+}
+.plantings-toolbar .button-secondary {
+    background: #375534;
+    border-color: #375534;
+    color: #fff;
+}
+.plantings-toolbar .button-secondary:hover {
+    background: #0f2a1d;
+    border-color: #0f2a1d;
+}
 .table-toolbar h2 {
     font:
         700 14px Manrope,
