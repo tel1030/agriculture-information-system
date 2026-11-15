@@ -152,27 +152,13 @@ select:focus-visible {
 .nav-list {
     overflow-y: auto;
     flex: 1;
-    scrollbar-color: rgba(183, 215, 190, 0.55) transparent;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 .nav-list::-webkit-scrollbar {
-    width: 8px;
-}
-.nav-list::-webkit-scrollbar-button {
     display: none;
     width: 0;
     height: 0;
-}
-.nav-list::-webkit-scrollbar-track {
-    background: transparent;
-}
-.nav-list::-webkit-scrollbar-thumb {
-    background: rgba(183, 215, 190, 0.42);
-    border: 2px solid #143d2a;
-    border-radius: 999px;
-}
-.nav-list::-webkit-scrollbar-thumb:hover {
-    background: rgba(183, 215, 190, 0.68);
 }
 .nav-caption {
     font-size: 9px;
