@@ -40,11 +40,86 @@
         ?.querySelectorAll('.nav-link')
         .forEach((link) => link.addEventListener('click', closeMobileNav));
 
-    document.querySelectorAll('[data-confirm]').forEach((form) => {
+    const confirmDialog = document.getElementById('confirm-dialog');
+    const confirmTitle = document.getElementById('confirm-dialog-title');
+    const confirmMessage = document.getElementById('confirm-dialog-message');
+    const confirmCancel = document.getElementById('confirm-cancel');
+    const confirmSubmit = document.getElementById('confirm-submit');
+    let pendingForm = null;
+    let pendingSubmitter = null;
+
+    document.querySelectorAll('form[data-confirm]').forEach((form) => {
         form.addEventListener('submit', (event) => {
-            if (!window.confirm(form.getAttribute('data-confirm') || 'Continue with this action?'))
-                event.preventDefault();
+            if (form.dataset.confirmApproved === 'true') {
+                delete form.dataset.confirmApproved;
+                return;
+            }
+
+            const message = form.dataset.confirm || 'Please confirm this action.';
+            if (
+                !confirmDialog ||
+                !confirmTitle ||
+                !confirmMessage ||
+                !confirmCancel ||
+                !confirmSubmit ||
+                typeof confirmDialog.showModal !== 'function'
+            ) {
+                if (!window.confirm(message)) event.preventDefault();
+                return;
+            }
+
+            event.preventDefault();
+            pendingForm = form;
+            pendingSubmitter = event.submitter instanceof HTMLElement ? event.submitter : null;
+            const action = form.querySelector('[name="form_action"]')?.value?.toLowerCase() || '';
+            const isDelete =
+                action === 'delete' ||
+                pendingSubmitter?.classList.contains('action-delete') ||
+                /^\s*delete\b/i.test(message);
+
+            confirmTitle.textContent = isDelete ? 'Confirm deletion' : 'Confirm action';
+            confirmMessage.textContent = message;
+            confirmSubmit.textContent = isDelete ? 'Delete' : 'Confirm';
+            confirmSubmit.classList.toggle('button-danger', isDelete);
+            confirmSubmit.classList.toggle('button-primary', !isDelete);
+            confirmDialog.showModal();
+            confirmCancel.focus();
         });
+    });
+
+    confirmCancel?.addEventListener('click', () => {
+        confirmDialog?.close('cancel');
+    });
+    confirmDialog?.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        confirmDialog.close('cancel');
+    });
+    confirmDialog?.addEventListener('close', () => {
+        pendingForm = null;
+        pendingSubmitter = null;
+    });
+    confirmSubmit?.addEventListener('click', () => {
+        const form = pendingForm;
+        const submitter = pendingSubmitter;
+        if (!form) {
+            confirmDialog?.close('cancel');
+            return;
+        }
+        if (!form.reportValidity()) return;
+
+        pendingForm = null;
+        pendingSubmitter = null;
+        form.dataset.confirmApproved = 'true';
+        confirmDialog?.close('confirm');
+        try {
+            if (submitter && submitter.form === form) {
+                form.requestSubmit(submitter);
+            } else {
+                form.requestSubmit();
+            }
+        } finally {
+            delete form.dataset.confirmApproved;
+        }
     });
     document
         .querySelectorAll('.alert-close')

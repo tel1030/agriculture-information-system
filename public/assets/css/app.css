@@ -762,6 +762,68 @@ select:focus-visible {
     color: inherit;
     cursor: pointer;
 }
+.button-danger {
+    background: #b64949;
+    border-color: #b64949;
+    color: #fff;
+}
+.button-danger:hover {
+    background: #963a3a;
+    border-color: #963a3a;
+}
+.confirm-dialog {
+    width: min(480px, calc(100% - 32px));
+    max-width: none;
+    padding: 0;
+    border: 1px solid #d5e1d5;
+    border-radius: 18px;
+    color: var(--text);
+    background: var(--surface);
+    box-shadow: 0 24px 80px rgba(15, 42, 29, 0.28);
+}
+.confirm-dialog::backdrop {
+    background: rgba(15, 42, 29, 0.58);
+    backdrop-filter: blur(2px);
+}
+.confirm-dialog-panel {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px;
+    padding: 26px;
+}
+.confirm-dialog-mark {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #963a3a;
+    background: #f8e9e6;
+    font: 700 20px Manrope, sans-serif;
+}
+.confirm-dialog-copy h2 {
+    margin: 2px 0 8px;
+    color: var(--text);
+    font: 700 18px Manrope, sans-serif;
+}
+.confirm-dialog-copy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+.confirm-dialog-actions {
+    grid-column: 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+.confirm-dialog-actions .button {
+    min-width: 92px;
+    min-height: 40px;
+}
 .table-panel {
     padding: 0;
     overflow: hidden;
@@ -1791,6 +1853,24 @@ select:focus-visible {
 }
 
 @media (max-width: 620px) {
+    .confirm-dialog-panel {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 20px;
+    }
+    .confirm-dialog-mark {
+        width: 32px;
+        height: 32px;
+    }
+    .confirm-dialog-copy h2 {
+        font-size: 16px;
+    }
+    .confirm-dialog-actions {
+        grid-column: 1 / -1;
+    }
+    .confirm-dialog-actions .button {
+        flex: 1;
+    }
     .metric-grid {
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
     }
