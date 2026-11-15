@@ -883,15 +883,22 @@ select:focus-visible {
     border-bottom: 1px solid #c7d6c6;
     font-size: 10px;
     color: var(--text);
+}
+.data-table tbody tr,
+.report-table tbody tr {
     background: #f3f7ec;
 }
-.data-table tbody tr:nth-child(even) td,
-.report-table tbody tr:nth-child(even) td {
+.data-table tbody tr:nth-child(even),
+.report-table tbody tr:nth-child(even) {
     background: #e3eed4;
 }
-.data-table tbody tr:hover td,
-.report-table tbody tr:hover td {
+.data-table tbody tr:hover,
+.report-table tbody tr:hover {
     background: #d5e3d2;
+}
+.data-table tbody td,
+.report-table tbody td {
+    background: transparent;
 }
 .sort-link {
     display: flex;
@@ -1215,7 +1222,6 @@ select:focus-visible {
 }
 .report-table td {
     color: var(--text);
-    background: #f3f7ec;
 }
 .report-panel {
     overflow: auto;
@@ -1839,7 +1845,7 @@ select:focus-visible {
         flex-wrap: wrap;
     }
     .responsive-list-table tbody td.row-actions::before {
-        flex: 0 0 34%;
+        content: none;
     }
     .responsive-list-table tbody td[colspan] {
         display: block;
