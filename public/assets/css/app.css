@@ -689,6 +689,14 @@ select:focus-visible {
     font-weight: 600;
     white-space: nowrap;
 }
+.status-chip.status-growing {
+    background: #e3eed4;
+    color: #375534;
+}
+.status-chip.status-harvested {
+    background: #aec3b0;
+    color: #0f2a1d;
+}
 .row-id {
     color: var(--muted);
     font-size: 10px;
@@ -764,40 +772,39 @@ select:focus-visible {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-}
-.plantings-toolbar {
-    background: #e3eed4;
+    background: #375534;
     border-bottom: 1px solid #6b9071;
+    color: #fff;
 }
-.plantings-toolbar h2 {
-    color: #0f2a1d;
+.table-toolbar h2 {
+    color: #fff;
 }
-.plantings-toolbar p {
-    color: #375534;
+.table-toolbar p {
+    color: #e3eed4;
 }
-.plantings-toolbar .search-box,
-.plantings-toolbar .filter-bar select {
+.table-toolbar .search-box,
+.table-toolbar .filter-bar select {
     background: #f8faf4;
     border-color: #aec3b0;
     color: #0f2a1d;
 }
-.plantings-toolbar .search-box:focus-within,
-.plantings-toolbar .filter-bar select:focus-visible {
+.table-toolbar .search-box:focus-within,
+.table-toolbar .filter-bar select:focus-visible {
     border-color: #6b9071;
-    outline: 2px solid rgba(107, 144, 113, 0.22);
+    outline: 2px solid rgba(227, 238, 212, 0.5);
     outline-offset: 1px;
 }
-.plantings-toolbar .search-box span {
+.table-toolbar .search-box span {
     color: #375534;
 }
-.plantings-toolbar .button-secondary {
-    background: #375534;
-    border-color: #375534;
-    color: #fff;
+.table-toolbar .button-secondary {
+    background: #aec3b0;
+    border-color: #aec3b0;
+    color: #0f2a1d;
 }
-.plantings-toolbar .button-secondary:hover {
-    background: #0f2a1d;
-    border-color: #0f2a1d;
+.table-toolbar .button-secondary:hover {
+    background: #e3eed4;
+    border-color: #e3eed4;
 }
 .table-toolbar h2 {
     font:
@@ -807,7 +814,7 @@ select:focus-visible {
 }
 .table-toolbar p {
     font-size: 10px;
-    color: var(--muted);
+    color: #e3eed4;
     margin: 3px 0 0;
 }
 .filter-bar {
@@ -876,7 +883,7 @@ select:focus-visible {
     border-bottom: 1px solid #c7d6c6;
     font-size: 10px;
     color: var(--text);
-    background: #f5f8f2;
+    background: #f3f7ec;
 }
 .data-table tbody tr:nth-child(even) td,
 .report-table tbody tr:nth-child(even) td {
@@ -1208,7 +1215,7 @@ select:focus-visible {
 }
 .report-table td {
     color: var(--text);
-    background: #f5f8f2;
+    background: #f3f7ec;
 }
 .report-panel {
     overflow: auto;

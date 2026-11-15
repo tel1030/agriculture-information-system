@@ -46,7 +46,9 @@ require __DIR__ . '/layout_top.php';
      strtotime($row['planting_date']),
  ) ?></small></span><span class="row-id">#<?= e(
     $row['planting_id'],
-) ?></span><span class="status-chip"><?= e(
+) ?></span><span class="status-chip status-<?= e(
+    strtolower(str_replace(' ', '-', (string) $row['status_name'])),
+) ?>"><?= e(
     $row['status_name'],
 ) ?></span></div><?php endforeach; ?></div><?php endif; ?></section>
 <section class="panel"><div class="panel-heading"><div><div class="eyebrow">LATEST ACTIVITY</div><h2>Recent harvests</h2></div><a class="text-link" href="harvests.php">See all <span>→</span></a></div><?php if (

@@ -21,9 +21,7 @@ require __DIR__ . '/layout_top.php';
     ) ?>?action=create"><span>＋</span> Add <?= rtrim(strtolower($d['title']), 's') ?></a>
 </section>
 <section class="panel table-panel">
-    <div class="table-toolbar<?= $d['title'] === 'Plantings'
-        ? ' plantings-toolbar'
-        : '' ?>">
+    <div class="table-toolbar">
         <div><h2>All <?= strtolower($d['title']) ?></h2><p><?= number_format(
     $total,
 ) ?> record<?= $total === 1 ? '' : 's' ?> found</p></div>
@@ -60,7 +58,9 @@ e($label) ?><?= $column === $d['key'] ? ' ↑' : ''
                 <?php foreach ($d['columns'] as $column => $label): ?><td data-label="<?= e(
     $label,
 ) ?>">
-                    <?php if ($column === 'status_name'): ?><span class="status-chip"><?= e(
+                    <?php if ($column === 'status_name'): ?><span class="status-chip status-<?= e(
+    strtolower(str_replace(' ', '-', (string) $row[$column])),
+) ?>"><?= e(
     $row[$column],
 ) ?></span>
                     <?php elseif ($column === 'area_hectares' || $column === 'area_planted'): ?><?= number_format(
