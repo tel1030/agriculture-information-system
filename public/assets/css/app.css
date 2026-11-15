@@ -1086,14 +1086,11 @@ select:focus-visible {
 .auth-message p {
     margin: 0 0 5px;
     color: #1c5035;
+    text-align: center;
     font: 600 15px/1.45 Manrope, sans-serif;
 }
 .auth-message p strong {
     color: #4b8f58;
-}
-.auth-message small {
-    color: var(--muted);
-    font-size: 11px;
 }
 .reports-grid {
     display: grid;
