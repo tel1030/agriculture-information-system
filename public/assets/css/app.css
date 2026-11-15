@@ -827,24 +827,30 @@ select:focus-visible {
     white-space: nowrap;
 }
 .data-table th {
-    background: var(--surface-soft);
-    color: #7c8980;
+    background: #aec3b0;
+    color: #0f2a1d;
     text-align: left;
     padding: 11px 15px;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.25px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-top: 1px solid #6b9071;
+    border-bottom: 1px solid #6b9071;
 }
 .data-table td {
     padding: 12px 15px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid #c7d6c6;
     font-size: 10px;
     color: var(--text);
+    background: #f5f8f2;
 }
-.data-table tbody tr:hover {
-    background: var(--surface-soft);
+.data-table tbody tr:nth-child(even) td,
+.report-table tbody tr:nth-child(even) td {
+    background: #e3eed4;
+}
+.data-table tbody tr:hover td,
+.report-table tbody tr:hover td {
+    background: #d5e3d2;
 }
 .sort-link {
     display: flex;
@@ -1157,12 +1163,18 @@ select:focus-visible {
 .report-table th {
     text-align: left;
     padding: 8px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid #c7d6c6;
     font-size: 10px;
 }
 .report-table th {
-    color: var(--muted);
+    color: #0f2a1d;
     font-size: 9px;
+    background: #aec3b0;
+    border-bottom-color: #6b9071;
+}
+.report-table td {
+    color: var(--text);
+    background: #f5f8f2;
 }
 .report-panel {
     overflow: auto;
