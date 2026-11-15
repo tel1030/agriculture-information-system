@@ -1188,15 +1188,12 @@ select:focus-visible {
 }
 .auth-intro h1 {
     font:
-        700 28px Manrope,
-        sans-serif;
-    letter-spacing: -0.8px;
-    margin: 8px 0;
-}
-.auth-intro p {
-    font-size: 12px;
-    color: var(--muted);
-    margin: 0 0 24px;
+        400 32px/1.15 "Cooper Black",
+        "Cooper",
+        Georgia,
+        serif;
+    letter-spacing: normal;
+    margin: 8px 0 24px;
 }
 .form-stack {
     display: grid;
