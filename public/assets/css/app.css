@@ -1005,10 +1005,16 @@ select:focus-visible {
     display: grid;
     place-items: center;
     padding: 24px 16px;
-    background: var(--bg);
+    background-color: #0c3d2b;
+    background-image:
+        linear-gradient(rgba(8, 55, 37, 0.22), rgba(8, 55, 37, 0.38)),
+        url("../images/login-green-texture.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .auth-wrap {
-    width: min(640px, 100%);
+    width: min(560px, 100%);
     margin: auto;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -1016,7 +1022,7 @@ select:focus-visible {
     box-shadow: 0 20px 60px rgba(34, 58, 40, 0.1);
 }
 .auth-card {
-    width: min(560px, 100%);
+    width: 100%;
     margin-inline: auto;
     padding: 36px 38px;
 }
@@ -1060,6 +1066,23 @@ select:focus-visible {
     color: var(--muted);
     font-size: 10px;
     margin-top: 25px;
+}
+.auth-message {
+    border-top: 1px solid var(--line);
+    margin-top: 24px;
+    padding-top: 18px;
+}
+.auth-message p {
+    margin: 0 0 5px;
+    color: #1c5035;
+    font: 600 15px/1.45 Manrope, sans-serif;
+}
+.auth-message p strong {
+    color: #4b8f58;
+}
+.auth-message small {
+    color: var(--muted);
+    font-size: 11px;
 }
 .reports-grid {
     display: grid;
@@ -1459,7 +1482,7 @@ select:focus-visible {
         padding: 15px;
     }
     .auth-wrap {
-        width: min(640px, 100%);
+        width: min(560px, 100%);
     }
     .auth-card {
         padding: 28px 24px;
