@@ -352,6 +352,14 @@ select:focus-visible {
     margin: 0 0 7px;
     color: var(--text);
 }
+.page-heading h1.dashboard-greeting {
+    font:
+        400 27px/1.2 "Cooper Black",
+        "Cooper",
+        Georgia,
+        serif;
+    letter-spacing: normal;
+}
 .page-heading p {
     margin: 0;
     color: var(--muted);

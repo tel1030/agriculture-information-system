@@ -3,9 +3,9 @@ require __DIR__ . '/layout_top.php';
 ?>
 <section class="page-heading"><div><div class="eyebrow"><?= strtoupper(
     date('l · j F Y'),
-) ?></div><h1>Good day, <?= e(
+) ?></div><h1 class="dashboard-greeting">Good day, <?= e(
     strtok($user['name'], ' '),
-) ?> <span class="heading-spark">✳</span></h1><p>Here’s a quick look at what’s happening across your agricultural records.</p></div></section>
+) ?>!</h1><p>Here’s a quick look at what’s happening across your agricultural records.</p></div></section>
 <div class="metric-grid"><?php foreach (
     $counts as $card
 ): ?><article class="metric-card"><div class="metric-top"><span><?= $card[
