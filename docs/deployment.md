@@ -43,42 +43,27 @@ database data locally. Supabase remains the persistent data store.
 
 After replacing/creating the role name through a trusted Supabase admin session, the permission shape for this application's runtime is:
 
+<!-- prettier-ignore -->
 ```sql
 GRANT CONNECT ON DATABASE postgres TO ais_runtime;
 
 GRANT USAGE ON SCHEMA public TO ais_runtime;
 
-GRANT
-SELECT
-,
-    INSERT,
-UPDATE,
-DELETE ON public.farmers,
-public.farms,
-public.crops,
-public.plantings,
-public.harvests TO ais_runtime;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE
+    public.farmers, public.farms, public.crops, public.plantings, public.harvests
+TO ais_runtime;
 
-GRANT
-SELECT
-,
-    INSERT,
-UPDATE ON public.crop_options,
-public.soil_types,
-public.irrigation_types,
-public.planting_statuses,
-public.harvest_options,
-public.app_users,
-public.user_preferences TO ais_runtime;
+GRANT SELECT, INSERT, UPDATE ON TABLE
+    public.crop_options, public.soil_types, public.irrigation_types,
+    public.planting_statuses, public.harvest_options, public.user_preferences
+TO ais_runtime;
 
-GRANT
-SELECT
-,
-    INSERT ON public.audit_logs TO ais_runtime;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.app_users TO ais_runtime;
 
-GRANT USAGE,
-SELECT
-    ON SEQUENCE public.farmers_farmer_id_seq,
+GRANT SELECT, INSERT ON TABLE public.audit_logs TO ais_runtime;
+
+GRANT USAGE, SELECT ON SEQUENCE
+    public.farmers_farmer_id_seq,
     public.farms_farm_id_seq,
     public.crops_crop_id_seq,
     public.plantings_planting_id_seq,

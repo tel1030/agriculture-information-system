@@ -10,6 +10,8 @@ A server-rendered agriculture records application for the AP3 midterm project. I
 - Administrator user and lookup management, activity history, personal theme preference, responsive sidebar, light/dark themes, and a safe static-only PWA shell.
 - A PostgreSQL migration with exactly 13 meaningful tables.
 
+Complete project documentation, including objectives, requirements, ERD, normalization, data dictionary, relationships, evidence status, and user instructions, is in [docs/system-documentation.md](docs/system-documentation.md).
+
 ## Requirements
 
 - PHP 8.2 or newer with `pdo_pgsql` enabled.

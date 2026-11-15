@@ -124,7 +124,7 @@ The migration creates exactly these 13 tables:
 |  12 | `user_preferences`  | One-to-one profile theme (`light` or `dark`) and update timestamp.                                                                                                 |
 |  13 | `audit_logs`        | Actor FK, action, entity, record key, minimized changed-field metadata, timestamp. Actor deletion leaves history and nulls the actor FK.                           |
 
-All business primary keys use generated identity values. Parent deletions are restricted while dependent farm, planting, harvest, lookup, or account records exist. Audit actor deletion is the exception (`SET NULL`); a user preference is removed with its account (`CASCADE`). Timestamps are database-generated. PostgreSQL checks, foreign keys, and unique indexes complement server validation.
+All business primary keys use generated identity values. The schema's foreign keys restrict parent deletion. For the four core parent modules with dependent business records (farmers, farms, crops, plantings), the application first removes descendants in dependency order inside one transaction, explains the impact in its confirmation, and records each removal in the audit log. Lookup deletion remains restricted; lookup values are deactivated instead. Audit actor deletion uses `SET NULL`; a user preference is removed with its account (`CASCADE`). Timestamps are database-generated. PostgreSQL checks, foreign keys, and unique indexes complement server validation.
 
 ## Known source decisions to confirm
 
