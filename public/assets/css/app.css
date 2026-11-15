@@ -2087,7 +2087,7 @@ html[data-theme='dark'] .profile-layout .form-panel {
         gap: 7px;
         margin: 8px -12px -7px;
         padding: 9px 12px;
-        background: #e3eed4;
+        background: transparent;
         border-top: 1px solid #c7d6c6;
         border-radius: 0 0 10px 10px;
     }
