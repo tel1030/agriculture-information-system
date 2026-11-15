@@ -6,19 +6,19 @@ require __DIR__ . '/layout_top.php';
     $rows,
 ) ?> account<?= count($rows) === 1
      ? ''
-     : 's' ?></p></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>ID ↑</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last sign in</th><th></th></tr></thead><tbody><?php foreach (
+     : 's' ?></p></div></div><div class="table-scroll"><table class="data-table responsive-list-table"><thead><tr><th>ID ↑</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last sign in</th><th></th></tr></thead><tbody><?php foreach (
     $rows
     as $row
 ):
-    $active = $row['is_active'] === 'true'; ?><tr><td><?= e($row['user_id']) ?></td><td><?= e(
+    $active = $row['is_active'] === 'true'; ?><tr><td data-label="ID"><?= e($row['user_id']) ?></td><td data-label="Name"><?= e(
     $row['full_name'],
-) ?></td><td><?= e($row['email']) ?></td><td><?= e($row['role']) ?></td><td class="<?= $active
+) ?></td><td data-label="Email"><?= e($row['email']) ?></td><td data-label="Role"><?= e($row['role']) ?></td><td data-label="Status" class="<?= $active
     ? 'account-active'
-    : 'account-inactive' ?>"><?= $active ? 'Active' : 'Inactive' ?></td><td><?= $row[
+    : 'account-inactive' ?>"><?= $active ? 'Active' : 'Inactive' ?></td><td data-label="Last sign in"><?= $row[
     'last_login_at'
 ]
     ? e(date('M j, Y', strtotime($row['last_login_at'])))
-    : 'Never' ?></td><td><?php if (
+    : 'Never' ?></td><td class="row-actions" data-label="Actions"><?php if (
     (int) $row['user_id'] !== $user['user_id']
 ): ?><form method="post" class="inline-form" data-confirm="<?= $active
     ? 'Disable'

@@ -24,7 +24,7 @@ $actionLabels = [
 
 <section class="panel table-panel">
     <div class="table-scroll">
-        <table class="data-table audit-table">
+        <table class="data-table audit-table responsive-list-table">
             <thead>
                 <tr>
                     <th>Date and time</th>
@@ -35,9 +35,9 @@ $actionLabels = [
             <tbody>
                 <?php foreach ($rows as $row): ?>
                     <tr>
-                        <td><?= e(date('M j, Y g:i A', strtotime($row['created_at']))) ?></td>
-                        <td><?= e($row['full_name'] ?? 'System') ?></td>
-                        <td><?= e($actionLabels[$row['action']] ?? ucwords(str_replace('_', ' ', strtolower($row['action'])))) ?></td>
+                        <td data-label="Date and time"><?= e(date('M j, Y g:i A', strtotime($row['created_at']))) ?></td>
+                        <td data-label="User"><?= e($row['full_name'] ?? 'System') ?></td>
+                        <td data-label="Activity"><?= e($actionLabels[$row['action']] ?? ucwords(str_replace('_', ' ', strtolower($row['action'])))) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

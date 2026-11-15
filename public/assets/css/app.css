@@ -2023,6 +2023,19 @@ html[data-theme='dark'] .profile-layout .form-panel {
         width: 100%;
         min-width: 0;
     }
+    .audit-table.responsive-list-table {
+        min-width: 0;
+        table-layout: auto;
+    }
+    .table-scroll {
+        min-width: 0;
+        overflow-x: hidden;
+    }
+    .filter-bar,
+    .filter-bar > * {
+        min-width: 0;
+        max-width: 100%;
+    }
     .responsive-list-table thead {
         display: none;
     }
@@ -2031,35 +2044,52 @@ html[data-theme='dark'] .profile-layout .form-panel {
     }
     .responsive-list-table tbody tr {
         display: block;
-        padding: 5px 14px;
-        border-bottom: 1px solid var(--line);
+        margin: 9px 0;
+        padding: 7px 12px;
+        border: 1px solid #c7d6c6;
+        border-radius: 11px;
+        background: #f3f7ec;
+        box-shadow: 0 3px 10px rgba(55, 85, 52, 0.035);
+    }
+    .responsive-list-table tbody tr:nth-child(even) {
+        background: #e3eed4;
     }
     .responsive-list-table tbody td {
         display: grid;
-        grid-template-columns: minmax(76px, 34%) minmax(0, 1fr);
+        grid-template-columns: minmax(88px, 34%) minmax(0, 1fr);
         align-items: start;
-        gap: 8px;
-        padding: 8px 0;
+        gap: 10px;
+        padding: 9px 0;
         border: 0;
-        font-size: 11px;
+        font-size: 12px;
         white-space: normal;
         overflow-wrap: anywhere;
+        word-break: break-word;
     }
     .responsive-list-table tbody td::before {
         content: attr(data-label);
         color: var(--muted);
-        font-size: 9px;
+        font-size: 10px;
+        line-height: 1.4;
         font-weight: 700;
     }
     .responsive-list-table tbody td.row-actions {
         display: flex;
         flex-wrap: wrap;
+        gap: 7px;
+        padding-top: 10px;
+        border-top: 1px solid #c7d6c6;
     }
     .responsive-list-table tbody td.row-actions::before {
         content: none;
     }
     .responsive-list-table tbody td[colspan] {
         display: block;
+        background: transparent;
+    }
+    .responsive-list-table .action-link {
+        min-height: 42px;
+        padding: 8px 9px;
     }
     .responsive-list-table tbody td[colspan]::before {
         content: none;

@@ -22,42 +22,42 @@ require __DIR__ . '/layout_top.php';
          ) ?></strong></article><article class="report-total"><small>Harvest records in range</small><strong><?= number_format(
     count($harvestRows),
 ) ?></strong></article></div>
-<div class="reports-grid"><section class="panel report-panel"><div class="eyebrow">FARMER DIRECTORY</div><h2>Farmers and their farms</h2><div class="table-scroll"><table class="report-table"><thead><tr><th>ID ↑</th><th>Farmer</th><th>Address</th><th>Farm count</th><th>Farms</th></tr></thead><tbody><?php foreach (
+<div class="reports-grid"><section class="panel report-panel"><div class="eyebrow">FARMER DIRECTORY</div><h2>Farmers and their farms</h2><div class="table-scroll"><table class="report-table responsive-list-table"><thead><tr><th>ID ↑</th><th>Farmer</th><th>Address</th><th>Farm count</th><th>Farms</th></tr></thead><tbody><?php foreach (
     $farmers
     as $row
-): ?><tr><td><?= e($row['farmer_id']) ?></td><td><?= e(
+): ?><tr><td data-label="ID"><?= e($row['farmer_id']) ?></td><td data-label="Farmer"><?= e(
     $row['first_name'] . ' ' . $row['last_name'],
-) ?></td><td><?= e($row['address']) ?></td><td><?= e($row['farm_count']) ?></td><td><?= e(
+) ?></td><td data-label="Address"><?= e($row['address']) ?></td><td data-label="Farm count"><?= e($row['farm_count']) ?></td><td data-label="Farms"><?= e(
     $row['farm_names'] ?: '—',
 ) ?></td></tr><?php endforeach; ?></tbody></table></div></section>
-<section class="panel report-panel"><div class="eyebrow">PLANTING ACTIVITY</div><h2>Crops planted per farm</h2><div class="table-scroll"><table class="report-table"><thead><tr><th>ID ↑</th><th>Farm</th><th>Crop</th><th>Date</th><th>Area (ha)</th><th>Status</th></tr></thead><tbody><?php foreach (
+<section class="panel report-panel"><div class="eyebrow">PLANTING ACTIVITY</div><h2>Crops planted per farm</h2><div class="table-scroll"><table class="report-table responsive-list-table"><thead><tr><th>ID ↑</th><th>Farm</th><th>Crop</th><th>Date</th><th>Area (ha)</th><th>Status</th></tr></thead><tbody><?php foreach (
     $plantingRows
     as $row
-): ?><tr><td><?= e($row['planting_id']) ?></td><td><?= e($row['farm_name']) ?></td><td><?= e(
+): ?><tr><td data-label="ID"><?= e($row['planting_id']) ?></td><td data-label="Farm"><?= e($row['farm_name']) ?></td><td data-label="Crop"><?= e(
     $row['crop_name'] . ' · ' . $row['variety'],
-) ?></td><td><?= e($row['planting_date']) ?></td><td><?= number_format(
+) ?></td><td data-label="Date"><?= e($row['planting_date']) ?></td><td data-label="Area (ha)"><?= number_format(
     (float) $row['area_planted'],
     2,
-) ?></td><td><?= e(
+) ?></td><td data-label="Status"><?= e(
     $row['status_name'],
 ) ?></td></tr><?php endforeach; ?></tbody></table></div></section>
-<section class="panel report-panel"><div class="eyebrow">STATUS SUMMARY</div><h2>Plantings by status</h2><div class="table-scroll"><table class="report-table"><thead><tr><th>ID ↑</th><th>Status</th><th>Plantings</th></tr></thead><tbody><?php foreach (
+<section class="panel report-panel"><div class="eyebrow">STATUS SUMMARY</div><h2>Plantings by status</h2><div class="table-scroll"><table class="report-table responsive-list-table"><thead><tr><th>ID ↑</th><th>Status</th><th>Plantings</th></tr></thead><tbody><?php foreach (
     $byStatus
     as $row
-): ?><tr><td><?= e($row['status_id']) ?></td><td><?= e(
+): ?><tr><td data-label="ID"><?= e($row['status_id']) ?></td><td data-label="Status"><?= e(
     $row['status_name'],
-) ?></td><td><?= number_format(
+) ?></td><td data-label="Plantings"><?= number_format(
     (int) $row['total'],
 ) ?></td></tr><?php endforeach; ?></tbody></table></div></section>
-<section class="panel report-panel"><div class="eyebrow">HARVEST ACTIVITY</div><h2>Harvest records</h2><div class="table-scroll"><table class="report-table"><thead><tr><th>ID ↑</th><th>Date</th><th>Farm</th><th>Crop</th><th>Quantity (kg)</th><th>Grade</th><th>Remark</th><th>Est. value</th></tr></thead><tbody><?php foreach (
+<section class="panel report-panel"><div class="eyebrow">HARVEST ACTIVITY</div><h2>Harvest records</h2><div class="table-scroll"><table class="report-table responsive-list-table"><thead><tr><th>ID ↑</th><th>Date</th><th>Farm</th><th>Crop</th><th>Quantity (kg)</th><th>Grade</th><th>Remark</th><th>Est. value</th></tr></thead><tbody><?php foreach (
     $harvestRows
     as $row
-): ?><tr><td><?= e($row['harvest_id']) ?></td><td><?= e($row['harvest_date']) ?></td><td><?= e(
+): ?><tr><td data-label="ID"><?= e($row['harvest_id']) ?></td><td data-label="Date"><?= e($row['harvest_date']) ?></td><td data-label="Farm"><?= e(
     $row['farm_name'],
-) ?></td><td><?= e($row['crop_name'] . ' · ' . $row['variety']) ?></td><td><?= number_format(
+) ?></td><td data-label="Crop"><?= e($row['crop_name'] . ' · ' . $row['variety']) ?></td><td data-label="Quantity (kg)"><?= number_format(
     (float) $row['quantity_kg'],
     2,
-) ?></td><td><?= e($row['quality_name']) ?></td><td><?= e($row['remark_name']) ?></td><td><?= $row[
+) ?></td><td data-label="Grade"><?= e($row['quality_name']) ?></td><td data-label="Remark"><?= e($row['remark_name']) ?></td><td data-label="Estimated value"><?= $row[
     'estimated_value'
 ] === null
     ? '—'
