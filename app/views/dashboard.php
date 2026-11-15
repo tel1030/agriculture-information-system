@@ -7,12 +7,9 @@ require __DIR__ . '/layout_top.php';
     strtok($user['name'], ' '),
 ) ?> <span class="heading-spark">✳</span></h1><p>Here’s a quick look at what’s happening across your agricultural records.</p></div></section>
 <div class="metric-grid"><?php foreach (
-    $counts
-    as $i => $card
+    $counts as $card
 ): ?><article class="metric-card"><div class="metric-top"><span><?= $card[
     'label'
-] ?></span><span class="metric-icon tone-<?= $i ?>"><?= ['♧', '▧', '❋', '⌁', '◉'][
-    $i
 ] ?></span></div><strong class="metric-value"><?= number_format(
     $card['value'],
 ) ?></strong><div class="metric-foot"><span>Current records</span><span class="metric-arrow">↗</span></div></article><?php endforeach; ?></div>
