@@ -5,7 +5,7 @@ require __DIR__ . '/layout_top.php';
     date('l · j F Y'),
 ) ?></div><h1>Good day, <?= e(
     strtok($user['name'], ' '),
-) ?> <span class="heading-spark">✳</span></h1><p>Here’s a quick look at what’s happening across your agricultural records.</p></div><a class="button button-primary" href="plantings.php?action=create"><span>＋</span> New planting</a></section>
+) ?> <span class="heading-spark">✳</span></h1><p>Here’s a quick look at what’s happening across your agricultural records.</p></div></section>
 <div class="metric-grid"><?php foreach (
     $counts
     as $i => $card
