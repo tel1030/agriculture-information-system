@@ -430,9 +430,12 @@ select:focus-visible {
 .metric-card {
     padding: 16px 17px 13px;
     min-height: 120px;
-    background: linear-gradient(155deg, #ffffff, #f7faf3);
-    border-color: #dce7d7;
+    background: #f3f7ec;
+    border-color: #c7d6c6;
     box-shadow: 0 6px 20px rgba(55, 85, 52, 0.045);
+}
+.metric-card:nth-child(even) {
+    background: #e3eed4;
 }
 .metric-top {
     display: flex;
@@ -473,6 +476,27 @@ select:focus-visible {
 .dashboard-grid > .panel {
     border-color: #dce7d7;
     box-shadow: 0 6px 22px rgba(55, 85, 52, 0.045);
+}
+.status-panel > .panel-heading,
+.lower-grid > .panel > .panel-heading {
+    margin: -20px -21px 16px;
+    padding: 13px 21px;
+    background: #375534;
+    border-bottom: 1px solid #6b9071;
+    border-radius: var(--radius) var(--radius) 0 0;
+    color: #fff;
+}
+.status-panel > .panel-heading .eyebrow,
+.lower-grid > .panel > .panel-heading .eyebrow {
+    color: #e3eed4;
+}
+.status-panel > .panel-heading h2,
+.lower-grid > .panel > .panel-heading h2 {
+    color: #fff;
+}
+.status-panel > .panel-heading .text-link,
+.lower-grid > .panel > .panel-heading .text-link {
+    color: #e3eed4;
 }
 .panel {
     padding: 20px 21px;
@@ -653,6 +677,7 @@ select:focus-visible {
 }
 .compact-list {
     display: grid;
+    gap: 0;
 }
 .compact-item {
     display: flex;
@@ -660,6 +685,24 @@ select:focus-visible {
     gap: 10px;
     padding: 10px 0;
     border-top: 1px solid var(--line);
+}
+.lower-grid .compact-item {
+    padding: 10px 12px;
+    border: 0;
+    background: #f3f7ec;
+}
+.lower-grid .compact-item:nth-child(even) {
+    background: #e3eed4;
+}
+.lower-grid .compact-item:first-child {
+    padding-top: 10px;
+    border-radius: 9px 9px 0 0;
+}
+.lower-grid .compact-item:last-child {
+    border-radius: 0 0 9px 9px;
+}
+.lower-grid .compact-item + .compact-item {
+    border-top: 1px solid #c7d6c6;
 }
 .compact-item:first-child {
     border-top: 0;
@@ -1599,6 +1642,11 @@ select:focus-visible {
     }
     .panel {
         padding: 16px;
+    }
+    .status-panel > .panel-heading,
+    .lower-grid > .panel > .panel-heading {
+        margin: -16px -16px 14px;
+        padding: 12px 16px;
     }
     .value-panel {
         min-height: 0;
