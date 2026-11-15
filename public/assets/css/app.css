@@ -1355,11 +1355,16 @@ select:focus-visible {
     gap: 16px;
     max-width: 960px;
 }
+.profile-layout .form-panel {
+    background: #fbfcf8;
+    border-color: #dce7d7;
+}
 .profile-help {
-    background: #eef5ef;
+    background: linear-gradient(145deg, #e3eed4, #aec3b0);
+    border: 1px solid #aec3b0;
     border-radius: 13px;
     padding: 17px;
-    color: #3a6345;
+    color: #0f2a1d;
 }
 .profile-help strong {
     font:
@@ -1387,6 +1392,50 @@ select:focus-visible {
     border: 1px solid var(--line);
     border-radius: 9px;
     font-size: 11px;
+    background: #f3f7ec;
+    border-color: #aec3b0;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+.theme-choice label:has(input:checked) {
+    background: #e3eed4;
+    border-color: #6b9071;
+}
+.profile-layout .eyebrow {
+    color: #6b9071;
+}
+.profile-layout .field-label input {
+    background: #f8faf4;
+    border-color: #aec3b0;
+}
+.profile-layout .field-label input:focus {
+    border-color: #375534;
+}
+.profile-layout .button-primary {
+    background: #375534;
+    border-color: #375534;
+}
+html[data-theme='dark'] .profile-help {
+    background: #1e3829;
+    border-color: #355b40;
+    color: #dcebdd;
+}
+html[data-theme='dark'] .theme-choice label {
+    background: var(--surface-soft);
+    border-color: var(--line);
+}
+html[data-theme='dark'] .theme-choice label:has(input:checked) {
+    background: #284331;
+    border-color: #6b9071;
+}
+html[data-theme='dark'] .profile-layout .field-label input {
+    background: var(--surface);
+    border-color: var(--line);
+}
+html[data-theme='dark'] .profile-layout .form-panel {
+    background: var(--surface);
+    border-color: var(--line);
 }
 .users-layout {
     display: grid;
