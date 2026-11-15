@@ -1008,7 +1008,7 @@ select:focus-visible {
     background: var(--bg);
 }
 .auth-wrap {
-    width: min(560px, 100%);
+    width: min(640px, 100%);
     margin: auto;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -1016,6 +1016,8 @@ select:focus-visible {
     box-shadow: 0 20px 60px rgba(34, 58, 40, 0.1);
 }
 .auth-card {
+    width: min(560px, 100%);
+    margin-inline: auto;
     padding: 36px 38px;
 }
 .auth-brand {
@@ -1457,7 +1459,7 @@ select:focus-visible {
         padding: 15px;
     }
     .auth-wrap {
-        width: min(560px, 100%);
+        width: min(640px, 100%);
     }
     .auth-card {
         padding: 28px 24px;
